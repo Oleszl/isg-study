@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+
+$base-yellow: #f9d806;
+$light-yellow: #ffee80;
+$base-black: #130f40;
+$light-color: #666;
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+}
+
+section {
+  padding: 3rem 6%;
+}
+
+.base-reference {
+  display: inline-block;
+  margin-top: 0;
+  padding: 0.3rem 3rem;
+  background: $light-yellow;
+  color:$base-black;
+  cursor: pointer;
+  font-size: 1.7rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.base-reference:hover {
+  background: $base-yellow;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: #fff;
+}
+
+.header .logo {
+  font-size: 2.5rem;
+  color: $base-black;
+  font-weight: bold;
+}
+
+.header .logo span {
+  color: $base-yellow;
+}
+
+.header .navbar a {
+  margin: 0 1rem;
+  font-size: 1.8rem;
+  color:$base-black;
+}
+
+.header .navbar a:hover {
+  color: $base-yellow;
+}
+
+section h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.cars-container {
+  display: flex;
+  justify-content: space-between;
+}
+.cars-container h1 {
+  display: inline;
+  margin: 0 1rem;
+}
+.car-content p {
+  margin: .2rem;
+}
+.cars img {
+  height: 80%;
+}
+.car-content {
+  text-align: center;
+}
+.services-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: justify;
+}
+.service {
+  width: 30%;
+  margin: 0.5rem;
+  padding: 2rem;
+  border: rgba(128, 128, 128, 0.1) solid;
+}
+.service-empty {
+  visibility: hidden;
+}
+.service:hover {
+  box-shadow: 2px 2px #888888;
+}
+
+.company-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  text-align: justify;
+}
+
+
+.company-logo {
+  margin: 0 1.5rem;
+}
+.company-reference {
+  text-align: center;
+  margin: 1rem;
+}
+
+.footer {
+  width: 100%;
+  background: $light-yellow;
+  padding: 2rem;
+}
+
+.footer .box-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer .box-container .box h3 {
+  font-size: 2rem;
+  color: $base-black;
+}
+
+.footer .box-container .box li {
+  display: block;
+  font-size: 1.2rem;
+  padding: 0.8rem 0;
+  color: $light-color;
+}
+.footer .box-container .box a {
+  display: block;
+  font-size: 1.2rem;
+  padding: 0.8rem 0;
+  color: $light-color;
+}
+.footer .box-container .box a:hover {
+  color: white;
+}
+.footer .box-container .box li:hover {
+  color: white;
+}
+
