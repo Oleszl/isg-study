@@ -45,6 +45,9 @@ abstract class User implements IUser {
   public abstract viewInfo(): String;
 }
 
+/** Наслідування - за допомогою цього принципу ООП ми можемо описати клас на основі іншого класу (уже існуючого)
+ *  тобто один об'єкт набуває властивостей іншого. Було створено клас User та Moderator, де User це батьківський клас, а Moderator - дочірній, який наслідує поля та методи(editProfile(), viewInfo()) з батьківського класу.
+ */
 class Moderator extends User {
   /** Інкапсуляція - полягає у обмеженні доступу до стану об'єкта(numberOfReports) напряму,
    *  ззовні можна взаємодіяти лише через public методи - get/set NumberOfReports()
@@ -89,9 +92,13 @@ class Moderator extends User {
 }
 
 /** Наслідування - за допомогою цього принципу ООП ми можемо описати клас на основі іншого класу (уже існуючого)
- *  тобто один об'єкт набуває властивостей іншого
+ *  тобто один об'єкт набуває властивостей іншого. Було створено клас User та Administrator, де User це батьківський клас, а Administrator - дочірній, який наслідує поля та методи(editProfile(), viewInfo()) з батьківського класу.
  */
 class Administrator extends User {
+   /** Інкапсуляція - полягає у обмеженні доступу до стану об'єкта(accessLevel) напряму,
+   *  ззовні можна взаємодіяти лише через public методи - get/set NumberOfReports()
+   *
+   */
   private accessLevel: AccessLevel;
 
   constructor(
@@ -136,7 +143,7 @@ class Administrator extends User {
     return this.accessLevel;
   }
 }
-
+// Поліморфізм - здатність метода виконуватися по різному в залежності від того об'ект якого класу його викликає. У даному прикладі у нас є методи від батьківського класу - editProfile() та viewInfo() - які ми перевизначаємо для обох класів (Administrator і Moderator), які працюють по різному, в залежності від об'єкта на якому метод було викликно.
 const administrator = new Administrator(
   "Oles",
   "Sukmanovskyi",
