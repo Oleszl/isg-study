@@ -55,7 +55,7 @@ function addUserInfo(data) {
   wrapper.insertAdjacentHTML(
     "beforeend",
     `<div class="header__item">
-    <p class='repository-owner'>Repository Owner: ${data[0].username}</p>
+    <p class='repository-owner'>Repository Owner: <span>${data[0].username}</span></p>
     </div>`
   );
 

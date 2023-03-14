@@ -63,6 +63,9 @@ h1 {
 .repo__item{
   padding: 5px;
 }
+.repository-owner span{
+  font-weight: bold;
+}
 
 .loader {
   display: none;
