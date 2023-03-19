@@ -1,0 +1,19 @@
+.navbar {
+  height: 50px;
+  width: 100vh;
+  padding: 0 15px;
+  background: lightgray;
+  display: "flex";
+  align-items: "center";
+  justify-content: space-between;
+}
+.navbar__links {
+  display: flex;
+}
+.navbar__links a {
+  text-decoration: none;
+}
+
+.navbar__item {
+  margin: 15px;
+}
