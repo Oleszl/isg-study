@@ -1,0 +1,12 @@
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid teal;
+  margin-top: 10px;
+}
+.user__content span {
+  font-weight: bold;
+  font-size: 18px;
+}
