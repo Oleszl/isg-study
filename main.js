@@ -28,7 +28,7 @@ const filmsList = localStorage.getItem("content")
 
 function showMovies() {
   for (let movie of filmsList) {
-    movieWrapper.append(addMovie(movie));
+    addMovie(movie);
   }
 }
 showMovies();
@@ -47,38 +47,45 @@ addButton.addEventListener("click", (e) => {
   dynamicPage.innerHTML = "";
   const id = Date.now().toString();
   addMovieInfo(id);
-  history.pushState({ id }, "movie", "#add");
+  history.pushState(id, "", "#add");
 });
 
 function addMovie(movie) {
   const movieItem = document.createElement("div");
   movieItem.classList.add("movie__item");
+  movieItem.insertAdjacentHTML(
+    "beforeend",
+    `
+    <h1 class="movie__title" id="${movie.id}">${movie.title}</h1>
 
-  const movieTitle = document.createElement("h1");
-  movieTitle.innerText = movie.title;
-  movieTitle.classList.add("movie__title");
-  movieTitle.setAttribute("id", movie.id);
-  movieTitle.addEventListener("click", (e) => {
-    e.preventDefault();
-    dynamicPage.innerHTML = "";
-    const id = e.target.getAttribute("id");
-    showMovieInfo(id);
-    history.pushState({ id }, `?id=${id}#preview`);
+     `
+  );
+
+  movieWrapper.append(movieItem);
+  const nodeList = document.querySelectorAll(".movie__title");
+  let elements = Array.from(nodeList);
+  elements.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      dynamicPage.innerHTML = "";
+      const id = e.target.getAttribute("id");
+      showMovieInfo(id);
+      history.pushState(id, "", `?id=${id}#preview`);
+    });
   });
 
   const editBtn = document.createElement("button");
   editBtn.textContent = "edit";
-  editBtn.classList.add("movie__btn");
+  editBtn.classList.add("movie__btn-edit");
   editBtn.setAttribute("id", movie.id);
   editBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const id = e.target.getAttribute("id");
     editMovieInfo(id);
-    history.pushState({ id }, `?id=${id}#edit`);
+    history.pushState(id, "", `?id=${id}#edit`);
   });
 
-  movieItem.append(movieTitle, editBtn);
-  return movieItem;
+  movieItem.append(editBtn);
 }
 
 function editMovieInfo(id) {
