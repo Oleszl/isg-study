@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest"
   },
-  "author": "",
+  "author": "Oles Sukmanovskyi",
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",

@@ -11,19 +11,33 @@
 // - buyCoffee
 
 const Shop = function () {
-  let balance = 0.0;
+  let balance = 10;
   let waterCount = 15;
   let waterPrice = 2;
   let coffeeCount = 20;
   let coffeePrice = 4;
 
   function getBalance() {
-    return balance.toFixed(2) + "$";
+    return balance.toFixed(2);
+  }
+
+  function getWaterCount() {
+    return waterCount;
+  }
+
+  function getWaterPrice() {
+    return waterPrice;
+  }
+  function getCoffeeCount() {
+    return coffeeCount;
+  }
+  function getCoffeePrice() {
+    return coffeePrice;
   }
 
   function sellWater(n = 1) {
     if (waterCount < n) {
-      return console.log("There isn't enough water in Shop");
+      throw new Error("There isn't enough water in Shop");
     }
     waterCount -= n;
     balance += waterPrice * n;
@@ -33,14 +47,14 @@ const Shop = function () {
   function buyWater(n = 1) {
     let optPrice = waterPrice * 0.75;
     if (optPrice * n > balance)
-      return "Sorry, there isn't enough money in Shop";
+      throw new Error("Sorry, there isn't enough money in Shop");
     balance -= optPrice * n;
     waterCount += n;
     return `${n} bottles of water has been added`;
   }
 
   function sellCoffee(n = 1) {
-    if (coffeeCount < n) return console.log("There isn't enough Coffe in shop");
+    if (coffeeCount < n) throw new Error("There isn't enough Coffe in shop");
     coffeeCount -= n;
     balance += coffeePrice * n;
     return `${n} cups of Сoffe has been bought`;
@@ -49,7 +63,7 @@ const Shop = function () {
   function buyCoffee(n = 1) {
     let optPrice = coffeePrice * 0.75;
     if (optPrice * n > balance)
-      return "Sorry, there isn't enough money in Shop";
+      throw new Error ("Sorry, there isn't enough money in Shop");
     balance -= optPrice * n;
     coffeeCount += n;
     return `Coffee beans for ${n} cups has been added`;
@@ -61,6 +75,10 @@ const Shop = function () {
     buyWater: buyWater,
     sellCoffee: sellCoffee,
     buyCoffee: buyCoffee,
+    getWaterCount: getWaterCount,
+    getWaterPrice: getWaterPrice,
+    getCoffeeCount: getCoffeeCount,
+    getCoffeePrice: getCoffeePrice,
   };
 };
 const shop = Shop();
